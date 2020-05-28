@@ -1,0 +1,6 @@
+db.sqlite3
+static/admin/
+files/
+venv/
+*__pycache__*
+secret_key.txt
