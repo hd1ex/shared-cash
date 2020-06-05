@@ -1,3 +1,5 @@
+import mimetypes
+
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
@@ -11,7 +13,7 @@ else:
     @login_required
     def file_download(request, filename):
         response = HttpResponse()
-        response['Content-Type'] = 'application/pdf'
+        response['Content-Type'] = mimetypes.guess_type(filename)[0]
         response['X-Accel-Redirect'] = f'{settings.PROTECTED_MEDIA}{filename}'
         response['Content-Disposition'] = f'inline;filename={filename}'
 
