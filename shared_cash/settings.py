@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_bootstrap_breadcrumbs',
+    'crispy_forms',
     'shared_cash_boxes',
 ]
 
@@ -138,6 +139,9 @@ BREADCRUMBS_TEMPLATE = 'django_bootstrap_breadcrumbs/bootstrap4.html'
 PROTECTED_MEDIA = '/protected-files/'
 MEDIA_ROOT = 'files/'
 MEDIA_URL = PROTECTED_MEDIA
+
+# Look and feel
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Logging
 LOGGING = {
