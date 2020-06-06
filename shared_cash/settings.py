@@ -29,10 +29,10 @@ with open('secret_key.txt', 'a+') as f:
         f.write(SECRET_KEY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 if not DEBUG:
-    ALLOWED_HOSTS = ['127.0.0.1']
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 # Application definition
 
@@ -79,11 +79,13 @@ WSGI_APPLICATION = 'shared_cash.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+DB_DIR = 'databases'
+os.makedirs(DB_DIR, exist_ok=True)
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, DB_DIR, 'shared_cash.db.sqlite3'),
     }
 }
 
@@ -125,14 +127,15 @@ USE_TZ = True
 
 if not DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+else:
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'static'),
+    ]
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
 
 BREADCRUMBS_TEMPLATE = 'django_bootstrap_breadcrumbs/bootstrap4.html'
 
 PROTECTED_MEDIA = '/protected-files/'
 if DEBUG:
     MEDIA_ROOT = 'files/'
-    MEDIA_URL = PROTECTED_MEDIA
+MEDIA_URL = PROTECTED_MEDIA

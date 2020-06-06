@@ -1,0 +1,26 @@
+version: '3.7'
+services:
+  web:
+    build: nginx
+    image: shared-cash-nginx
+    volumes:
+      - static:/srv/shared-cash/static/
+      - files:/srv/shared-cash/files/
+    ports:
+      - 80:80
+      - 443:443
+    restart: always
+  shared-cash:
+    build: .
+    image: shared-cash
+    volumes:
+      - static:/srv/shared-cash/static/
+      - files:/srv/shared-cash/files/
+      - databases:/srv/shared-cash/databases/
+    expose:
+      - 8000
+    restart: always
+volumes:
+  static:
+  files:
+  databases:
