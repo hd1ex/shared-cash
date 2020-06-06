@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_bootstrap_breadcrumbs',
     'crispy_forms',
+    'django_tables2',
     'shared_cash_boxes',
 ]
 
@@ -142,6 +143,9 @@ MEDIA_URL = PROTECTED_MEDIA
 
 # Look and feel
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+DATE_FORMAT = 'd M Y'
+SHORT_DATE_FORMAT = 'Y-m-d'
+SHORT_DATETIME_FORMAT = 'Y-m-d P'
 
 # Logging
 LOGGING = {
