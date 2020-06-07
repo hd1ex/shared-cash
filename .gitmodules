@@ -1,3 +1,4 @@
 [submodule "django-shared-cash-boxes"]
 	path = django-shared-cash-boxes
 	url = ../django-shared-cash-boxes.git
+	branch = master
