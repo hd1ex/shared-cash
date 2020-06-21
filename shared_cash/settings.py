@@ -136,8 +136,7 @@ STATIC_URL = '/static/'
 BREADCRUMBS_TEMPLATE = 'django_bootstrap_breadcrumbs/bootstrap4.html'
 
 PROTECTED_MEDIA = '/protected-files/'
-if DEBUG:
-    MEDIA_ROOT = 'files/'
+MEDIA_ROOT = 'files/'
 MEDIA_URL = PROTECTED_MEDIA
 
 # Logging
