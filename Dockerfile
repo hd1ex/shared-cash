@@ -28,6 +28,7 @@ RUN pip install --upgrade pip; \
     pip install -e django-shared-cash-boxes/
 
 # Run applications
+RUN mkdir log/
 RUN python manage.py migrate
 RUN python manage.py collectstatic --no-input
 
