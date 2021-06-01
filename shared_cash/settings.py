@@ -174,3 +174,7 @@ LOGGING = {
         },
     },
 }
+
+# Misc
+
+MARKDOWN_INDEX_PAGE = 'index.md'

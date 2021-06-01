@@ -1,0 +1,29 @@
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+
+<head>
+    <title>Index</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: light)"
+          href=" {% static 'css/bootstrap-light.css' %}">
+    <link rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark)"
+          href="{% static 'css/bootstrap-dark.css' %}">
+</head>
+
+<body>
+
+<div id="wrap" class="container pb-2">
+    {% block content %}
+        {{ content|safe }}
+    {% endblock %}
+</div>
+
+</body>
+</html>

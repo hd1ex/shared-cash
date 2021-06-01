@@ -21,7 +21,7 @@ from django.views.generic import RedirectView
 from . import views
 
 urlpatterns = [
-    path('', RedirectView.as_view(url=reverse_lazy('cash_box_index'))),
+    path('', views.index),
     path('cash/', include('shared_cash_boxes.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),

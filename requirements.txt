@@ -4,3 +4,4 @@ django-bootstrap-breadcrumbs
 django-tables2
 gunicorn
 django-crispy-forms
+markdown

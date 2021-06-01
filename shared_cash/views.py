@@ -1,9 +1,10 @@
 import mimetypes
+import markdown
 
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 
 if settings.DEBUG:
     @login_required
@@ -18,3 +19,9 @@ else:
         response['Content-Disposition'] = f'inline;filename={filename}'
 
         return response
+
+
+def index(request):
+    with open(settings.MARKDOWN_INDEX_PAGE, 'r') as file:
+        html = markdown.markdown(file.read())
+        return render(request, 'markdown-site.html', {'content': html})
